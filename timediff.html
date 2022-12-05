@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <meta http-equiv="refresh" content="1" />
+    </head>
+<body>
+   <h1> Days Left </h1>
+   <p id="date1"> </p>
+   <p id="date2"> </p>
+   <p id="seconds">Number of seconds between two dates: </p>
+   <script>
+    function secondsToDhms(seconds) {
+seconds = Number(seconds);
+var d = Math.floor(seconds / (3600*24));
+var h = Math.floor(seconds % (3600*24) / 3600);
+var m = Math.floor(seconds % 3600 / 60);
+var s = Math.floor(seconds % 60);
+
+var dDisplay = d > 0 ? d + (d == 1 ? " day, " : " days, ") : "";
+var hDisplay = h > 0 ? h + (h == 1 ? " hour, " : " hours, ") : "";
+var mDisplay = m > 0 ? m + (m == 1 ? " minute, " : " minutes, ") : "";
+var sDisplay = s > 0 ? s + (s == 1 ? " second" : " seconds") : "";
+return dDisplay + hDisplay + mDisplay + sDisplay;
+}
+      var t1 = new Date();
+      var t2 = new Date("Dec 15, 2022 20:00:00");
+      var dif = Math.abs(t1.getTime() - t2.getTime()) / 1000;
+      document.getElementById('date1').innerHTML = "Today: " + t1;
+      document.getElementById('date2').innerHTML = "The Day: " + 
+      t2;
+      document.getElementById('seconds').innerHTML += secondsToDhms(dif) + " seconds";
+   </script>
+</body>
+</html>
